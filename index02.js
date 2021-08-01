@@ -43,41 +43,68 @@ const users = [
   },
 ];
 
-// function to filter out users who scores above 85;
-const scoresGreaterThan85 = (users) => {
-  const userscoresabove85 = users.filter((elem, index) => elem.scores > 85);
-  console.log(userscoresabove85);
-};
+/////////////////////////////// function to filter out users who scores above 85/////////////////////////
+// const scoresGreaterThan85 = (users) => {
+//   const userscoresabove85 = users.filter((elem, index) => elem.scores > 85);
+//   console.log(userscoresabove85);
+// };
 
-scoresGreaterThan85(users);
+// scoresGreaterThan85(users);
+
+//////////////////////	Write a function which addUser to the user array only if the user does not exist. ///////////  
+// const addUser = (user) => {
+
+//   const array = [...users]
+
+//   const find = array.filter((elem, index) => elem.name == user.name)
+  
+//   switch (find.length) {
+//     case 0:
+//       array.push(user)
+//       console.log("User added.");
+//       break;
+//     case 1:
+//       console.log("user already exist.");
+//     default: 
+//       break;
+//   }
+
+//   console.log(array);
+// }
+
+// newUser = {
+//   name: "Aman",
+//   score: 98,
+//   skills: ["React", "Js", "CSS", "HTML", "MongoDB", "Node.Js", "Express"],
+//   age: 25
+// }
+ 
+// addUser(newUser)
 
 
-   //	Write a function which addUser to the user array only if the user does not exist.   
-const addUser = (user) => {
 
+
+///////////////////////////////To add Skills to already existing user////////////////////////
+
+const addSkills = (user) => {
+  
   const array = [...users]
 
   const find = array.filter((elem, index) => elem.name == user.name)
-  
-  switch (find.length) {
-    case 0:
-      array.push(user)
-      console.log("User added.");
-      break;
-    case 1:
-      console.log("user already exist.");
-    default: 
-      break;
-  }
 
+  if (find.length == 0) {
+  return  console.log("user doesn't exist");
+  }
+  find[0].skills.push(...user.skills)
+//  console.log(find[0].skills)
   console.log(array);
 }
 
 newUser = {
-  name: "Aman",
+  name: "Alex",
   score: 98,
-  skills: ["React", "Js", "CSS", "HTML", "MongoDB", "Node.Js", "Express"],
+  skills: ["MongoDB", "Node.Js", "Express"],
   age: 25
 }
- 
-addUser(newUser)
+
+addSkills(newUser)
