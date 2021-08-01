@@ -43,10 +43,41 @@ const users = [
   },
 ];
 
-//function to filter out users who scores above 85;
+// function to filter out users who scores above 85;
 const scoresGreaterThan85 = (users) => {
   const userscoresabove85 = users.filter((elem, index) => elem.scores > 85);
   console.log(userscoresabove85);
 };
 
 scoresGreaterThan85(users);
+
+
+   //	Write a function which addUser to the user array only if the user does not exist.   
+const addUser = (user) => {
+
+  const array = [...users]
+
+  const find = array.filter((elem, index) => elem.name == user.name)
+  
+  switch (find.length) {
+    case 0:
+      array.push(user)
+      console.log("User added.");
+      break;
+    case 1:
+      console.log("user already exist.");
+    default: 
+      break;
+  }
+
+  console.log(array);
+}
+
+newUser = {
+  name: "Aman",
+  score: 98,
+  skills: ["React", "Js", "CSS", "HTML", "MongoDB", "Node.Js", "Express"],
+  age: 25
+}
+ 
+addUser(newUser)
